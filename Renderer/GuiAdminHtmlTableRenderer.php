@@ -26,14 +26,9 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                 <?php foreach ($this->headers as $col => $label): ?>
                     <?php if (true === $this->headerIsVisible($col)): ?>
                         <?php
-                        $classes = $this->getHeaderClasses($col);
-                        if ($classes) {
-                            $sClass = ' class="' . implode(' ', $classes) . '"';
-                        } else {
-                            $sClass = "";
-                        }
+                        $headerAttributes = $this->getHeaderColAttributes($col);
                         ?>
-                        <th <?php echo $sClass; ?>><?php echo $label; ?></th>
+                        <th <?php echo StringTool::htmlAttributes($headerAttributes); ?>><?php echo $label; ?></th>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </tr>
@@ -135,7 +130,17 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
         <?php
     }
 
-    protected function getHeaderClasses($col)
+    protected function getHeaderColAttributes($col)
+    {
+        $attributes = [];
+        $classes = $this->getHeaderColClasses($col);
+        if ($classes) {
+            $attributes['class'] = $classes;
+        }
+        return $attributes;
+    }
+
+    protected function getHeaderColClasses($col)
     {
         $classes = [];
 

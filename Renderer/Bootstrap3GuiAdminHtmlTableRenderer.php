@@ -41,9 +41,9 @@ class Bootstrap3GuiAdminHtmlTableRenderer extends GuiAdminHtmlTableRenderer
     //--------------------------------------------
     //
     //--------------------------------------------
-    protected function getHeaderClasses($col)
+    protected function getHeaderColClasses($col)
     {
-        $classes = parent::getHeaderClasses($col);
+        $classes = parent::getHeaderColClasses($col);
         if (array_key_exists($col, $this->colWidths)) {
             $classes[] = $this->colWidths[$col];
         }

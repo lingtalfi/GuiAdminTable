@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.1.0 -- 2018-01-15
+
+    - add GuiAdminHtmlTableRenderer.getHeaderColAttributes method
+    
 - 1.0.0 -- 2018-01-15
 
     - initial commit
