@@ -135,7 +135,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
         $attributes = [];
         $classes = $this->getHeaderColClasses($col);
         if ($classes) {
-            $attributes['class'] = $classes;
+            $attributes['class'] = implode(' ', $classes);
         }
         return $attributes;
     }

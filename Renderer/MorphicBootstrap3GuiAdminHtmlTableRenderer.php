@@ -18,7 +18,8 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
 
     protected function getHeaderColAttributes($col)
     {
-        $attributes = parent::getHeaderColClasses($col);
+        $attributes = parent::getHeaderColAttributes($col);
+
         if (true === $this->useSort) {
             $dir = "null";
             if (array_key_exists($col, $this->headersOrder)) {

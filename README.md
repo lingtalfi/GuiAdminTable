@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.1.1 -- 2018-01-15
+
+    - fix GuiAdminHtmlTableRenderer.getHeaderColAttributes method wrong argument for htmlspecialchars 
+    
 - 1.1.0 -- 2018-01-15
 
     - add GuiAdminHtmlTableRenderer.getHeaderColAttributes method
