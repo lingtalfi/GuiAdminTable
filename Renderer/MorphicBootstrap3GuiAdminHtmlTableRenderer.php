@@ -6,6 +6,15 @@ namespace GuiAdminTable\Renderer;
 
 class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlTableRenderer
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addHtmlAttributes("table", [
+            'class' => "morphic-table",
+        ]);
+    }
+
+
     protected function getHeaderColClasses($col)
     {
         $classes = parent::getHeaderColClasses($col);

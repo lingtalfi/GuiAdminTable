@@ -137,10 +137,11 @@ abstract class GuiAdminTableRenderer
         if (array_key_exists($identifier, $this->htmlAttributes)) {
             $arr = $this->htmlAttributes[$identifier];
             foreach ($attributes as $k => $v) {
-                /**
-                 * @todo-ling: merge class?
-                 */
-                $arr[$k] = $v;
+                if ('class' === $k && array_key_exists('class', $arr)) {
+                    $arr['class'] .= ' ' . $v;
+                } else {
+                    $arr[$k] = $v;
+                }
             }
             $this->htmlAttributes[$identifier] = $arr;
         } else {

@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.1.2 -- 2018-01-15
+
+    - enhance GuiAdminHtmlTableRenderer.addHtmlAttributes now merges css classes 
+    
 - 1.1.1 -- 2018-01-15
 
     - fix GuiAdminHtmlTableRenderer.getHeaderColAttributes method wrong argument for htmlspecialchars 
