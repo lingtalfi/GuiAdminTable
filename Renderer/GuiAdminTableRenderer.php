@@ -147,6 +147,7 @@ abstract class GuiAdminTableRenderer
         } else {
             throw new GuiAdminTableException("Identifier not found in htmlAttributes: $identifier");
         }
+        return $this;
     }
 
     public function addSearchColumnGenerator($column, \Closure $searchColumnGenerator)
