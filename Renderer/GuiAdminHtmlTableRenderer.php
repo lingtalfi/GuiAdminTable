@@ -147,9 +147,9 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
         if (true === $this->useSort) {
             if (array_key_exists($col, $this->headersOrder)) {
                 $v = $this->headersOrder[$col];
-                if (true === $v) {
+                if (true === $v || 'asc' === $v) {
                     $classes[] = 'sorting_asc';
-                } elseif (false === $v) {
+                } elseif (false === $v || 'desc' === $v) {
                     $classes[] = 'sorting_desc';
                 } else {
                     $classes[] = 'sorting';

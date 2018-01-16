@@ -69,3 +69,53 @@ We recommend the following css class markup:
 
 
 
+Implementation
+---------------
+The table should have the following attributes:
+
+- data-view-id: the name of the table to interact with
+- ?data-page: the number of the current page to display,
+            otherwise (if not set), 1 is assumed
+- data-nipp: the number of items per page to use,
+            otherwise (if not set), 20 is assumed
+- data-service-uri: the url of the service to fetch
+        
+        
+        
+### Ajax service
+
+An ajax service should be available.
+The communication consists of the actions described below.
+It will use the [ecp](https://github.com/lingtalfi/Ecp) protocol.
+All parameters are passed via post.
+The key introducing the actions is: "actionType".
+
+
+- fetching data:
+        - actionType: fetch
+        - viewId: the view id.
+                    Often, this is the name of the table.
+                    It's an identifier representing the view being displayed.
+        - sort: array of columnName => sortDir
+                        with sortDir: asc|desc|null
+                        Note: if the columnName is not passed, it has the same
+                        effects than if it had the value null.
+        - filters: array of columnName => searchString
+                        @todo-ling: define searchString
+        - page: int, the minimum is 1.
+        - nipp: int, the number of items per page
+                        
+        The result is a string containing the html table and widgets.
+        It should depend on the theme.
+        Therefore, we ask the Theme to give us a "table & widgets" renderer,
+        also called GuiAdminTableRenderer.
+        
+        
+
+
+
+
+
+
+
+        

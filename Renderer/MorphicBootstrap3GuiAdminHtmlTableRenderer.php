@@ -33,9 +33,9 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
             $dir = "null";
             if (array_key_exists($col, $this->headersOrder)) {
                 $v = $this->headersOrder[$col];
-                if (true === $v) {
+                if (true === $v || 'asc' === $v) {
                     $dir = "asc";
-                } elseif (false === $v) {
+                } elseif (false === $v || 'desc' === $v) {
                     $dir = "desc";
                 }
             }
@@ -43,6 +43,7 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
                 $attributes["data-sort-dir"] = $dir;
             }
             $attributes["data-column"] = $col;
+
         }
         return $attributes;
     }
