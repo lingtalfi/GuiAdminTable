@@ -47,4 +47,36 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
         }
         return $attributes;
     }
+
+    protected function displayCheckboxCell()
+    {
+        ?>
+        <td><input class="morphic morphic-checkbox" type="checkbox"></td>
+        <?php
+    }
+
+
+
+    protected function displaySearchButton()
+    {
+        ?>
+        <button type="button" class="btn btn-default btn-sm morphic morphic-table-search-btn">
+            <i class="fa fa-search"></i>
+            Rechercher
+        </button>
+        <?php
+    }
+
+
+    protected function displayDefaultSearchCol($col)
+    {
+        $value = "";
+        if (array_key_exists($col, $this->searchValues)) {
+            $value = $this->searchValues[$col];
+        }
+        ?>
+        <input data-column="<?php echo $col; ?>" class="morphic-table-filter" type="text"
+               value="<?php echo htmlspecialchars($value); ?>">
+        <?php
+    }
 }

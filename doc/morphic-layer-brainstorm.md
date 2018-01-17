@@ -79,8 +79,49 @@ The table should have the following attributes:
 - data-nipp: the number of items per page to use,
             otherwise (if not set), 20 is assumed
 - data-service-uri: the url of the service to fetch
+
+
+The checkboxes used to tick a row in the table should have the class:
+- morphic morphic-checkbox (both)
+
+
+
+
+### Sorting
+
+Every element that could be sorted should have the "morphic-table-sort" class.
+Also, it should have a data-column attribute holding the value of the column,
+and a "data-sort-dir" attribute to hold the direction of the sort: asc, desc, null.
+
+### Filtering
+
+Every element that can hold a filter value (like input or select for instance)
+should have the "morphic-table-filter" class.
+Also, it should have a data-column attribute holding the value of the column.
+
+The search button should have the classes "morphic-table-search-btn" 
+and "morphic" (morphic class is necessary for the morphic system to kick in).
+
+### pagination
+
+The following markup, related to pagination, should be applied:
+
+
+- morphic-page, this is for a specific page.
+                    The page number should be added using the attribute: data-page
+
+
+
+### nipp        
         
-        
+For nipp, the element should have the following class:
+
+- morphic-nipp
+        The nipp number should be set via the data-nipp number.
+        If data-nipp equals 0, this means display all items.
+
+
+
         
 ### Ajax service
 

@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.3.0 -- 2018-01-17
+
+    - add GuiAdminHtmlTableRenderer.displayCheckboxCell protected method
+    
 - 1.2.0 -- 2018-01-16
 
     - enhance GuiAdminHtmlTableRenderer.getHeaderColClasses now reacts to asc and desc keywords (in addition to true and/or false)  

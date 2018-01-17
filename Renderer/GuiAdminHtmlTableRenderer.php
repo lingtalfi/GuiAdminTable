@@ -57,7 +57,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
             <?php foreach ($this->rows as $row): ?>
                 <tr <?php echo $htmlAttrTrRow; ?>>
                     <?php if (true === $this->useCheckboxes): ?>
-                        <td><input type="checkbox"></td>
+                        <?php $this->displayCheckboxCell(); ?>
                     <?php endif; ?>
                     <?php foreach ($this->headers as $col => $label):
 
@@ -86,6 +86,13 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
     //--------------------------------------------
     //
     //--------------------------------------------
+    protected function displayCheckboxCell()
+    {
+        ?>
+        <td><input type="checkbox"></td>
+        <?php
+    }
+
     protected function displaySearchButton()
     {
         ?>
