@@ -222,6 +222,11 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.4.0 -- 2018-01-17
+
+    - fix GuiAdminHtmlTableRenderer header visible on search rows and body rows
+    - add GuiAdminHtmlTableRenderer.getBodyColAttributes internal method
+    
 - 1.3.0 -- 2018-01-17
 
     - add GuiAdminHtmlTableRenderer.displayCheckboxCell protected method

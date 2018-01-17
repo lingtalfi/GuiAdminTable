@@ -85,6 +85,11 @@ The checkboxes used to tick a row in the table should have the class:
 - morphic morphic-checkbox (both)
 
 
+Every cell containing data should have the following attributes:
+- data-column: the name of the column
+- data-value: the real value of the column
+
+
 
 
 ### Sorting

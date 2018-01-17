@@ -29,6 +29,8 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                         $headerAttributes = $this->getHeaderColAttributes($col);
                         ?>
                         <th <?php echo StringTool::htmlAttributes($headerAttributes); ?>><?php echo $label; ?></th>
+                    <?php else: ?>
+                        <th><?php echo $label; ?></th>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </tr>
@@ -42,13 +44,17 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                         <td></td>
                     <?php endif; ?>
                     <?php foreach ($this->headers as $col => $label): ?>
-                        <td>
-                            <?php if ($this->searchButtonExtraColumnName === $col): ?>
-                                <?php $this->displaySearchButton(); ?>
-                            <?php else: ?>
-                                <?php $this->displaySearchCol($col); ?>
-                            <?php endif; ?>
-                        </td>
+                        <?php if (true === $this->headerIsVisible($col)): ?>
+                            <td>
+                                <?php if ($this->searchButtonExtraColumnName === $col): ?>
+                                    <?php $this->displaySearchButton(); ?>
+                                <?php else: ?>
+                                    <?php $this->displaySearchCol($col); ?>
+                                <?php endif; ?>
+                            </td>
+                        <?php else: ?>
+                            <td></td>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </tr>
             <?php endif; ?>
@@ -59,20 +65,28 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                     <?php if (true === $this->useCheckboxes): ?>
                         <?php $this->displayCheckboxCell(); ?>
                     <?php endif; ?>
-                    <?php foreach ($this->headers as $col => $label):
-
-                        $value = null;
-                        if (array_key_exists($col, $row)) {
-                            $value = $row[$col];
-                        }
-                        if (array_key_exists($col, $this->colTransformers)) {
-                            $transformers = $this->colTransformers[$col];
-                            foreach ($transformers as $callable) {
-                                $value = call_user_func($callable, $value);
+                    <?php foreach ($this->headers as $col => $label): ?>
+                        <?php if (true === $this->headerIsVisible($col)): ?>
+                            <?php
+                            $value = null;
+                            if (array_key_exists($col, $row)) {
+                                $value = $row[$col];
                             }
-                        }
-                        ?>
-                        <td><?php echo $value; ?></td>
+                            $originalValue = $value;
+                            if (array_key_exists($col, $this->colTransformers)) {
+                                $transformers = $this->colTransformers[$col];
+                                foreach ($transformers as $callable) {
+                                    $value = call_user_func($callable, $value);
+                                }
+                            }
+
+                            $colAttr = $this->getBodyColAttributes($col, $originalValue, $value);
+                            ?>
+                            <td <?php echo StringTool::htmlAttributes($colAttr); ?>><?php echo $value; ?></td>
+                        <?php else: ?>
+                            <td <?php echo StringTool::htmlAttributes($colAttr); ?>
+                            ><?php echo $value; ?></td>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>
@@ -86,6 +100,14 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
     //--------------------------------------------
     //
     //--------------------------------------------
+    protected function getBodyColAttributes($columnName, $originalValue, $value)
+    {
+        return [
+            "data-column" => $columnName,
+            "data-value" => $originalValue,
+        ];
+    }
+
     protected function displayCheckboxCell()
     {
         ?>
