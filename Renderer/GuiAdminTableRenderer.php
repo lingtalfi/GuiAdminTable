@@ -42,7 +42,7 @@ abstract class GuiAdminTableRenderer
     /**
      * @var array of colName => transformers,
      *          with transformers: array of transformer
-     *              with transformer: callable ( value )
+     *              with transformer: callable ( mixed:value, array:row)
      */
     protected $colTransformers;
     protected $htmlAttributes;

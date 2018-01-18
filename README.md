@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.5.0 -- 2018-01-18
+
+    - add GuiAdminHtmlTableRenderer row argument to transformer callable
+    
 - 1.4.0 -- 2018-01-17
 
     - fix GuiAdminHtmlTableRenderer header visible on search rows and body rows

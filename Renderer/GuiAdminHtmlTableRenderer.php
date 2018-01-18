@@ -76,7 +76,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                             if (array_key_exists($col, $this->colTransformers)) {
                                 $transformers = $this->colTransformers[$col];
                                 foreach ($transformers as $callable) {
-                                    $value = call_user_func($callable, $value);
+                                    $value = call_user_func($callable, $value, $row);
                                 }
                             }
 
