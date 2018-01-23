@@ -31,8 +31,8 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
 
         if (true === $this->useSort) {
             $dir = "null";
-            if (array_key_exists($col, $this->headersOrder)) {
-                $v = $this->headersOrder[$col];
+            if (array_key_exists($col, $this->headersDirection)) {
+                $v = $this->headersDirection[$col];
                 if (true === $v || 'asc' === $v) {
                     $dir = "asc";
                 } elseif (false === $v || 'desc' === $v) {
