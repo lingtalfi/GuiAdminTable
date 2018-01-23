@@ -36,7 +36,7 @@ abstract class GuiAdminTableRenderer
      *              - null (by default, meaning neither asc nor desc)
      *
      */
-    protected $headersOrder;
+    protected $headersDirection;
     protected $rows;
 
     /**
@@ -58,7 +58,7 @@ abstract class GuiAdminTableRenderer
         $this->useCheckboxes = true;
         $this->headers = [];
         $this->headersVisibility = [];
-        $this->headersOrder = [];
+        $this->headersDirection = [];
         $this->rows = [];
         $this->colTransformers = [];
         $this->htmlAttributes = [
@@ -112,10 +112,10 @@ abstract class GuiAdminTableRenderer
         return $this;
     }
 
-    public function setHeadersOrder(array $headersOrder)
+    public function setHeadersDirection(array $headersDirection)
     {
-        foreach ($headersOrder as $col => $order) {
-            $this->headersOrder[$col] = $order;
+        foreach ($headersDirection as $col => $dir) {
+            $this->headersDirection[$col] = $dir;
         }
         return $this;
     }

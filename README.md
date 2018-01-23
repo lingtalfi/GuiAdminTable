@@ -172,7 +172,7 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
          */
         '_action' => '',
     ])
-    ->setHeadersOrder([
+    ->setHeadersDirection([
         'id' => null, // null: no order, true: asc, false: desc
         'name' => true, // null: no order, true: asc, false: desc
         'age' => false,
@@ -221,6 +221,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 
 History Log
 ------------------
+    
+- 1.6.0 -- 2018-01-18
+
+    - change method name GuiAdminHtmlTableRenderer.setHeadersOrder -> setHeadersDirection 
     
 - 1.5.0 -- 2018-01-18
 
