@@ -30,7 +30,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                         ?>
                         <th <?php echo StringTool::htmlAttributes($headerAttributes); ?>><?php echo $label; ?></th>
                     <?php else: ?>
-                        <th style="display: none">fff<?php echo $label; ?></th>
+                        <th style="display: none"><?php echo $label; ?></th>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </tr>
@@ -169,6 +169,9 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
     {
         $attributes = [];
         $classes = $this->getHeaderColClasses($col);
+        if ('_action' === $col) {
+            $classes = [];
+        }
         if ($classes) {
             $attributes['class'] = implode(' ', $classes);
         }
