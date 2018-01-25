@@ -29,7 +29,7 @@ abstract class GuiAdminTableRenderer
     protected $headersVisibility;
 
     /**
-     * @var array of colName => dir
+     * @var array of (symbolic) colName => dir
      *          with dir one of:
      *              - true (asc)
      *              - false (desc)

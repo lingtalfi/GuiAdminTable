@@ -30,7 +30,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                         ?>
                         <th <?php echo StringTool::htmlAttributes($headerAttributes); ?>><?php echo $label; ?></th>
                     <?php else: ?>
-                        <th><?php echo $label; ?></th>
+                        <th style="display: none">fff<?php echo $label; ?></th>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </tr>
@@ -53,7 +53,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                                 <?php endif; ?>
                             </td>
                         <?php else: ?>
-                            <td></td>
+                            <td style="display: none"></td>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </tr>
@@ -65,28 +65,34 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                     <?php if (true === $this->useCheckboxes): ?>
                         <?php $this->displayCheckboxCell(); ?>
                     <?php endif; ?>
-                    <?php foreach ($this->headers as $col => $label): ?>
-                        <?php if (true === $this->headerIsVisible($col)): ?>
-                            <?php
-                            $value = null;
-                            if (array_key_exists($col, $row)) {
-                                $value = $row[$col];
+                    <?php foreach ($this->headers as $col => $label):
+                        $value = null;
+                        if (array_key_exists($col, $row)) {
+                            $value = $row[$col];
+                        }
+                        $originalValue = $value;
+                        if (array_key_exists($col, $this->colTransformers)) {
+                            $transformers = $this->colTransformers[$col];
+                            foreach ($transformers as $callable) {
+                                $value = call_user_func($callable, $value, $row);
                             }
-                            $originalValue = $value;
-                            if (array_key_exists($col, $this->colTransformers)) {
-                                $transformers = $this->colTransformers[$col];
-                                foreach ($transformers as $callable) {
-                                    $value = call_user_func($callable, $value, $row);
-                                }
-                            }
+                        }
 
-                            $colAttr = $this->getBodyColAttributes($col, $originalValue, $value);
-                            ?>
-                            <td <?php echo StringTool::htmlAttributes($colAttr); ?>><?php echo $value; ?></td>
-                        <?php else: ?>
-                            <td <?php echo StringTool::htmlAttributes($colAttr); ?>
-                            ><?php echo $value; ?></td>
-                        <?php endif; ?>
+                        $colAttr = $this->getBodyColAttributes($col, $originalValue, $value);
+                        ?>
+                        <?php if (true === $this->headerIsVisible($col)): ?>
+                        <td <?php echo StringTool::htmlAttributes($colAttr); ?>><?php echo $value; ?></td>
+                    <?php else:
+
+                        if (array_key_exists("style", $colAttr)) {
+                            $colAttr['style'] .= "; display: none";
+                        } else {
+                            $colAttr['style'] = "display: none";
+                        }
+                        ?>
+                        <td <?php echo StringTool::htmlAttributes($colAttr); ?>
+                        ><?php echo $value; ?></td>
+                    <?php endif; ?>
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>

@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.6.2 -- 2018-01-25
+
+    - now GuiAdminHtmlTableRenderer handles headersVisibility correctly  
+    
 - 1.6.1 -- 2018-01-23
 
     - fix GuiAdminHtmlTableRenderer.setHeadersOrder change method name 
