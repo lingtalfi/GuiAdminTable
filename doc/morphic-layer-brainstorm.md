@@ -119,6 +119,9 @@ Also, it should have a data-column attribute holding the value of the column.
 The search button should have the classes "morphic-table-search-btn" 
 and "morphic" (morphic class is necessary for the morphic system to kick in).
 
+A search reset button might exist, it should have the classes "morphic-table-search-reset-btn" 
+and "morphic".
+
 ### pagination
 
 The following markup, related to pagination, should be applied:
