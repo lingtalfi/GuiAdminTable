@@ -64,6 +64,9 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
             <i class="fa fa-search"></i>
             Rechercher
         </button>
+        <button type="button" class="btn btn-default btn-sm morphic morphic-table-search-reset-btn">
+            <i class="fa fa-close"></i>
+        </button>
         <?php
     }
 

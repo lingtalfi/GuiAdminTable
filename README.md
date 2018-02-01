@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.8.0 -- 2018-02-01
+
+    - add MorphicBootstrap3GuiAdminHtmlTableRenderer search reset button  
+    
 - 1.7.0 -- 2018-01-25
 
     - now GuiAdminHtmlTableRenderer _action column doesn't display sort triggers in the header  
