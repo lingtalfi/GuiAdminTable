@@ -45,13 +45,15 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                     <?php endif; ?>
                     <?php foreach ($this->headers as $col => $label): ?>
                         <?php if (true === $this->headerIsVisible($col)): ?>
-                            <td>
-                                <?php if ($this->searchButtonExtraColumnName === $col): ?>
+                            <?php if ($this->searchButtonExtraColumnName === $col): ?>
+                                <td style="display: flex">
                                     <?php $this->displaySearchButton(); ?>
-                                <?php else: ?>
+                                </td>
+                            <?php else: ?>
+                                <td>
                                     <?php $this->displaySearchCol($col); ?>
-                                <?php endif; ?>
-                            </td>
+                                </td>
+                            <?php endif; ?>
                         <?php else: ?>
                             <td style="display: none"></td>
                         <?php endif; ?>

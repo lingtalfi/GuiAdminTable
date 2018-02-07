@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.9.0 -- 2018-02-07
+
+    - enhance GuiAdminHtmlTableRenderer added display: flex to search buttons  
+    
 - 1.8.0 -- 2018-02-01
 
     - add MorphicBootstrap3GuiAdminHtmlTableRenderer search reset button  
