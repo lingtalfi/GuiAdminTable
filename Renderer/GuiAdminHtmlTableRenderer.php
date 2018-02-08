@@ -50,9 +50,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
                                     <?php $this->displaySearchButton(); ?>
                                 </td>
                             <?php else: ?>
-                                <td>
-                                    <?php $this->displaySearchCol($col); ?>
-                                </td>
+                                <?php $this->displaySearchColCell($col); ?>
                             <?php endif; ?>
                         <?php else: ?>
                             <td style="display: none"></td>
@@ -141,6 +139,20 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
         } else {
             $this->displayDefaultSearchCol($col);
         }
+    }
+
+
+    protected function displaySearchColCell($col)
+    {
+        $attr = [];
+        if (array_key_exists($col, $this->searchValues)) {
+            $attr['class'] = "has-content";
+        }
+        ?>
+        <td<?php echo StringTool::htmlAttributes($attr); ?>>
+            <?php $this->displaySearchCol($col); ?>
+        </td>
+        <?php
     }
 
     protected function displayDefaultSearchCol($col)

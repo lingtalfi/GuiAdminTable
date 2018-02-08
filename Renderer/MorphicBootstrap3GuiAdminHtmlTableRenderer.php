@@ -37,6 +37,7 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
                     $dir = "asc";
                 } elseif (false === $v || 'desc' === $v) {
                     $dir = "desc";
+
                 }
             }
             if (null !== $dir) {
@@ -54,7 +55,6 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
         <td><input class="morphic morphic-checkbox" type="checkbox"></td>
         <?php
     }
-
 
 
     protected function displaySearchButton()

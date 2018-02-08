@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.10.0 -- 2018-02-08
+
+    - add GuiAdminHtmlTableRenderer protected displaySearchColCell method 
+    
 - 1.9.0 -- 2018-02-07
 
     - enhance GuiAdminHtmlTableRenderer added display: flex to search buttons  
