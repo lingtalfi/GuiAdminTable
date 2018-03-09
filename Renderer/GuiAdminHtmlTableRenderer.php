@@ -134,10 +134,12 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
 
     protected function displaySearchCol($col)
     {
-        if (array_key_exists($col, $this->searchColumnGenerators)) {
-            call_user_func($this->searchColumnGenerators[$col]);
-        } else {
-            $this->displayDefaultSearchCol($col);
+        if (!in_array($col, $this->deadCols, true)) {
+            if (array_key_exists($col, $this->searchColumnGenerators)) {
+                call_user_func($this->searchColumnGenerators[$col]);
+            } else {
+                $this->displayDefaultSearchCol($col);
+            }
         }
     }
 
@@ -197,17 +199,19 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
         $classes = [];
 
         if (true === $this->useSort) {
-            if (array_key_exists($col, $this->headersDirection)) {
-                $v = $this->headersDirection[$col];
-                if (true === $v || 'asc' === $v) {
-                    $classes[] = 'sorting_asc';
-                } elseif (false === $v || 'desc' === $v) {
-                    $classes[] = 'sorting_desc';
+            if (!in_array($col, $this->deadCols, true)) {
+                if (array_key_exists($col, $this->headersDirection)) {
+                    $v = $this->headersDirection[$col];
+                    if (true === $v || 'asc' === $v) {
+                        $classes[] = 'sorting_asc';
+                    } elseif (false === $v || 'desc' === $v) {
+                        $classes[] = 'sorting_desc';
+                    } else {
+                        $classes[] = 'sorting';
+                    }
                 } else {
                     $classes[] = 'sorting';
                 }
-            } else {
-                $classes[] = 'sorting';
             }
         }
         return $classes;

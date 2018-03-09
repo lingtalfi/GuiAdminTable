@@ -19,8 +19,10 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
     {
         $classes = parent::getHeaderColClasses($col);
         if (true === $this->useSort) {
-            $classes[] = "morphic-table-sort";
-            $classes[] = "morphic";
+            if (!in_array($col, $this->deadCols, true)) {
+                $classes[] = "morphic-table-sort";
+                $classes[] = "morphic";
+            }
         }
         return $classes;
     }

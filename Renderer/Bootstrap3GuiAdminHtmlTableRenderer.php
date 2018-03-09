@@ -13,6 +13,7 @@ class Bootstrap3GuiAdminHtmlTableRenderer extends GuiAdminHtmlTableRenderer
      */
     private $colWidths;
 
+
     public function __construct()
     {
         parent::__construct();
@@ -36,6 +37,8 @@ class Bootstrap3GuiAdminHtmlTableRenderer extends GuiAdminHtmlTableRenderer
         $this->colWidths[$colName] = $colWidth;
         return $this;
     }
+
+
 
 
     //--------------------------------------------
