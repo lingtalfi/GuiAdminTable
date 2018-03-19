@@ -222,6 +222,10 @@ Bootstrap3GuiAdminHtmlTableRenderer::create()
 History Log
 ------------------
     
+- 1.12.0 -- 2018-03-19
+
+    - add MorphicBootstrap3GuiAdminHtmlTableRenderer.addSearchColumnHelper method 
+    
 - 1.11.0 -- 2018-03-09
 
     - add GuiAdminHtmlTableRenderer.deadCols property 

@@ -4,17 +4,70 @@
 namespace GuiAdminTable\Renderer;
 
 
+use GuiAdminTable\Exception\GuiAdminTableException;
+
 class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlTableRenderer
 {
+
+
+    protected $searchColumnHelpers;
+
     public function __construct()
     {
         parent::__construct();
         $this->addHtmlAttributes("table", [
             'class' => "morphic-table",
         ]);
+        $this->searchColumnHelpers = [];
+    }
+
+    public function render()
+    {
+        if ($this->searchColumnHelpers) {
+            foreach ($this->searchColumnHelpers as $column => $helper) {
+                list($type, $param1) = $helper;
+                switch ($type) {
+                    case "list":
+                        $this->addSearchColumnGenerator($column, function ($col) use ($param1) {
+                            $value = "";
+                            if (array_key_exists($col, $this->searchValues)) {
+                                $value = $this->searchValues[$col];
+                            }
+                            ?>
+                            <select data-column="<?php echo $col; ?>" class="morphic-table-filter">
+                                <option value="">-</option>
+                                <?php foreach ($param1 as $val => $label):
+                                    $sSel = ((string)$val === (string)$value) ? 'selected="selected"' : "";
+                                    ?>
+                                    <option <?php echo $sSel; ?>
+                                            value="<?php echo htmlspecialchars($val); ?>"><?php echo $label; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <?php
+                        });
+                        break;
+                    default:
+                        throw new GuiAdminTableException("Unknown searchColumnHelper: $type");
+                        break;
+                }
+            }
+        }
+        parent::render();
     }
 
 
+    public function addSearchColumnHelper($column, $helperType, $param1 = null)
+    {
+        $this->searchColumnHelpers[$column] = [$helperType, $param1];
+        return $this;
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
     protected function getHeaderColClasses($col)
     {
         $classes = parent::getHeaderColClasses($col);

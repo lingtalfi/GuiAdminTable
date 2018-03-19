@@ -136,7 +136,7 @@ class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
     {
         if (!in_array($col, $this->deadCols, true)) {
             if (array_key_exists($col, $this->searchColumnGenerators)) {
-                call_user_func($this->searchColumnGenerators[$col]);
+                call_user_func($this->searchColumnGenerators[$col], $col);
             } else {
                 $this->displayDefaultSearchCol($col);
             }
