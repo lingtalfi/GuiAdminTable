@@ -46,6 +46,37 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
                             <?php
                         });
                         break;
+                    case "date":
+                        $this->addSearchColumnGenerator($column, function ($col) use ($param1) {
+                            list($lowestName, $highestName) = $param1;
+
+
+                            $lowestValue = "";
+                            if (array_key_exists($lowestName, $this->searchValues)) {
+                                $lowestValue = $this->searchValues[$lowestName];
+                            }
+                            $highestValue = "";
+                            if (array_key_exists($highestName, $this->searchValues)) {
+                                $highestValue = $this->searchValues[$highestName];
+                            }
+                            ?>
+                            <div class="filter-date-container">
+                                <div class="input-group input-group-sm"><input data-column="<?php echo $lowestName; ?>"
+                                                                               class="form-control filter-datepicker morphic-table-filter"
+                                                                               placeholder="Du"
+                                                                               value="<?php echo htmlspecialchars($lowestValue); ?>">
+                                    <span
+                                            class="input-group-addon"><i class="fa fa-calendar"></i></span></div>
+                                <div class="input-group input-group-sm"><input data-column="<?php echo $highestName; ?>"
+                                                                               class="form-control filter-datepicker morphic-table-filter"
+                                                                               placeholder="Au"
+                                                                               value="<?php echo htmlspecialchars($highestValue); ?>">
+                                    <span
+                                            class="input-group-addon"><i class="fa fa-calendar"></i></span></div>
+                            </div>
+                            <?php
+                        });
+                        break;
                     default:
                         throw new GuiAdminTableException("Unknown searchColumnHelper: $type");
                         break;
