@@ -49,6 +49,13 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
                     case "date":
                         $this->addSearchColumnGenerator($column, function ($col) use ($param1) {
                             list($lowestName, $highestName) = $param1;
+                            $isDateTime = $param1[2] ?? false;
+
+
+                            $className = "filter-datepicker";
+                            if (true === $isDateTime) {
+                                $className .= "-datetime morphic-manual-change";
+                            }
 
 
                             $lowestValue = "";
@@ -62,13 +69,13 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
                             ?>
                             <div class="filter-date-container">
                                 <div class="input-group input-group-sm"><input data-column="<?php echo $lowestName; ?>"
-                                                                               class="form-control filter-datepicker morphic-table-filter"
+                                                                               class="form-control <?php echo $className; ?> morphic-table-filter"
                                                                                placeholder="Du"
                                                                                value="<?php echo htmlspecialchars($lowestValue); ?>">
                                     <span
                                             class="input-group-addon"><i class="fa fa-calendar"></i></span></div>
                                 <div class="input-group input-group-sm"><input data-column="<?php echo $highestName; ?>"
-                                                                               class="form-control filter-datepicker morphic-table-filter"
+                                                                               class="form-control <?php echo $className; ?> morphic-table-filter"
                                                                                placeholder="Au"
                                                                                value="<?php echo htmlspecialchars($highestValue); ?>">
                                     <span
