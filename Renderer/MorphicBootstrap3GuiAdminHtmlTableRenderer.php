@@ -84,6 +84,26 @@ class MorphicBootstrap3GuiAdminHtmlTableRenderer extends Bootstrap3GuiAdminHtmlT
                             <?php
                         });
                         break;
+                    case "numeric_comparator":
+                        $this->addSearchColumnGenerator($column, function ($col) use ($param1) {
+                            list($lessCol, $moreCol) = $param1;
+                            ?>
+                                                        Bobby Fisher <?php echo $moreCol; ?>
+                            <input data-column="<?php echo $col; ?>" class="morphic-table-filter" value="" type="text">
+                            <div class="math_symbol_container">
+                                <div class="less-than">
+                                    <span class="math_symbol">&gt;</span> <input data-column="<?php echo $moreCol; ?>" type="text" value=""
+                                                                               class="morphic-table-filter">
+                                </div>
+                                <div class="more-than">
+                                    <span class="math_symbol">&lt;</span> <input data-column="<?php echo $lessCol; ?>" type="text" value=""
+                                                                               class="morphic-table-filter">
+                                </div>
+
+                            </div>
+                            <?php
+                        });
+                        break;
                     default:
                         throw new GuiAdminTableException("Unknown searchColumnHelper: $type");
                         break;
