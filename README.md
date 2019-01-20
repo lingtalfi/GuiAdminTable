@@ -7,7 +7,7 @@ An object to display administrable list of rows.
 
 
 
-[![guiadmin.png](https://i.postimg.cc/WzHgLZD8/guiadmin.png)](https://postimg.cc/T5npnpJ5)
+[![guiadmin.png](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin.png)](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin.png)
 
 
 
@@ -45,7 +45,7 @@ In the following examples, I'm using bootstrap 3.3.7, but GuiAdminTable is frame
 Simplest example
 ---------------------
 
-[![guiadmin-demo1.png](https://i.postimg.cc/jjqxPSdQ/guiadmin-demo1.png)](https://postimg.cc/xX7VSYmc)
+[![guiadmin-demo1.png](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo1.png)](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo1.png)
 
 To start with, we just need to set the rows, and define the headers.
 
@@ -108,7 +108,7 @@ Then, we can play with different options.
 The details are explained in the comments.
 
 
-[![guiadmin-demo2.png](https://i.postimg.cc/prh3zgFB/guiadmin-demo2.png)](https://postimg.cc/kRCjdYwV)
+[![guiadmin-demo2.png](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo2.png)](http://lingtalfi.com/img/universe/GuiAdminTable/guiadmin-demo2.png)
 
 
 
