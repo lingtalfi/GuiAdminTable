@@ -5,10 +5,24 @@ GuiAdminTable
 
 An object to display administrable list of rows.
 
-GuiAdminTable is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
 
 
 [![guiadmin.png](https://i.postimg.cc/WzHgLZD8/guiadmin.png)](https://postimg.cc/T5npnpJ5)
+
+
+
+GuiAdminTable is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import GuiAdminTable
+```
+
 
 
 This is a follow up of the [AdminTable](https://github.com/lingtalfi/AdminTable) planet.
