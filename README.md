@@ -31,7 +31,7 @@ In the following examples, I'm using bootstrap 3.3.7, but GuiAdminTable is frame
 Simplest example
 ---------------------
 
-[![guiadmin-demo1.png](https://s19.postimg.org/z62joc98z/guiadmin-demo1.png)](https://postimg.org/image/kzmst3ydr/)
+[![guiadmin-demo1.png](https://i.postimg.cc/jjqxPSdQ/guiadmin-demo1.png)](https://postimg.cc/xX7VSYmc)
 
 To start with, we just need to set the rows, and define the headers.
 
@@ -94,7 +94,7 @@ Then, we can play with different options.
 The details are explained in the comments.
 
 
-[![guiadmin-demo2.png](https://s19.postimg.org/itshz5sir/guiadmin-demo2.png)](https://postimg.org/image/csut235wf/)
+[![guiadmin-demo2.png](https://i.postimg.cc/prh3zgFB/guiadmin-demo2.png)](https://postimg.cc/kRCjdYwV)
 
 
 
