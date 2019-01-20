@@ -7,7 +7,8 @@ An object to display administrable list of rows.
 
 GuiAdminTable is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
 
-[![guiadmin.png](https://s19.postimg.org/vii74x1hv/guiadmin.png)](https://postimg.org/image/r9dh2qy8f/)
+
+[![guiadmin.png](https://i.postimg.cc/WzHgLZD8/guiadmin.png)](https://postimg.cc/T5npnpJ5)
 
 
 This is a follow up of the [AdminTable](https://github.com/lingtalfi/AdminTable) planet.
