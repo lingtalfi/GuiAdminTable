@@ -1,10 +1,10 @@
 <?php
 
 
-namespace GuiAdminTable\Renderer;
+namespace Ling\GuiAdminTable\Renderer;
 
 
-use Bat\StringTool;
+use Ling\Bat\StringTool;
 
 class GuiAdminHtmlTableRenderer extends GuiAdminTableRenderer
 {

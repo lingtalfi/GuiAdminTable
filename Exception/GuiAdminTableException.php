@@ -1,7 +1,7 @@
 <?php
 
 
-namespace GuiAdminTable\Exception;
+namespace Ling\GuiAdminTable\Exception;
 
 
 class GuiAdminTableException extends \Exception{

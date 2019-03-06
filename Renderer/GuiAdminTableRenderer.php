@@ -1,10 +1,10 @@
 <?php
 
 
-namespace GuiAdminTable\Renderer;
+namespace Ling\GuiAdminTable\Renderer;
 
 
-use GuiAdminTable\Exception\GuiAdminTableException;
+use Ling\GuiAdminTable\Exception\GuiAdminTableException;
 
 
 /**

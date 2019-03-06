@@ -1,7 +1,7 @@
 <?php
 
 
-namespace GuiAdminTable\Renderer;
+namespace Ling\GuiAdminTable\Renderer;
 
 
 class Bootstrap3GuiAdminHtmlTableRenderer extends GuiAdminHtmlTableRenderer
